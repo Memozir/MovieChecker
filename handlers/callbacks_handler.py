@@ -1,3 +1,5 @@
+import re
+
 from dispatcher import dp, bot
 from . callback_factory import cb
 import keyboards
@@ -8,8 +10,6 @@ from states import MessageNumber
 from aiogram import types
 from aiogram.dispatcher import FSMContext
 from aiogram.utils.markdown import hlink
-
-import re
 
 
 @dp.callback_query_handler(cb.filter(), state=MessageNumber.SAVE_ID)
@@ -41,8 +41,8 @@ async def bot_functions(query: types.CallbackQuery, callback_data: dict, state: 
 		await state.update_data(movies = films)
 
 		if len(films) == 0:
-
 			await bot.send_message(query.from_user.id, 'На данный момент в Киномаксе нет сеансов')
+
 
 		else:
 
@@ -94,3 +94,5 @@ async def bot_functions(query: types.CallbackQuery, callback_data: dict, state: 
 					disable_web_page_preview=True,
                     reply_markup=film['kb_show']
                     )
+    
+    

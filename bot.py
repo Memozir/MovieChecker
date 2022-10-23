@@ -1,7 +1,7 @@
+import logging
 from aiogram import executor
 from dispatcher import dp, bot, shutdow
-import logging
-import handlers
+# import handlers
 
 logging.basicConfig(level=logging.INFO)
 
